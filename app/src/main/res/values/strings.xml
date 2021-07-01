@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Testproject</string>
+    <string name="new_create">+</string>
+    <string name="default_title">work</string>
+</resources>
