@@ -1,5 +1,7 @@
 package com.example.testproject;
 
+import java.util.ArrayList;
+
 public class SubWorkRowData {
     /*
     Sub work用のメタデータ
@@ -7,7 +9,7 @@ public class SubWorkRowData {
      */
     private String sub_work_title;
     public Boolean is_expanded = false;
-    //private List<SubSubWorkRowData> sub_sub_work_dataset = new ArrayList();
+    private final ArrayList<SubSubWorkRowData> sub_sub_work_dataset = new ArrayList<>();
 
     public String getSubWorkTitle(){
         return this.sub_work_title;
@@ -21,14 +23,11 @@ public class SubWorkRowData {
         this.is_expanded = !this.is_expanded;
     }
 
-    /*
-    public List<SubSubWorkRowData> getSubSubWorkDataset(){
+    public ArrayList<SubSubWorkRowData> getSubSubWorkDataset(){
         return this.sub_sub_work_dataset;
     }
 
     public void setSubSubWorkDataset(SubSubWorkRowData sub_sub_work_data){
         this.sub_sub_work_dataset.add(sub_sub_work_data);
     }
-     */
-
 }

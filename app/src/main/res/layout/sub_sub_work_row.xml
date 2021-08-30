@@ -13,7 +13,10 @@
         <TextView
             android:id="@+id/sub_sub_work_title"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:textSize="23sp"
+            android:textColor="@color/dark_gray"/>
     </LinearLayout>
 
 </LinearLayout>

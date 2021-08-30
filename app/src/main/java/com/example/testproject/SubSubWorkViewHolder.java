@@ -14,7 +14,7 @@ public class SubSubWorkViewHolder extends RecyclerView.ViewHolder{
 
     public SubSubWorkViewHolder(View itemView){
         super(itemView);
-        sub_sub_work_titleView = (TextView) itemView.findViewById(R.id.sub_sub_work_title);
+        sub_sub_work_titleView = itemView.findViewById(R.id.sub_sub_work_title);
     }
 
 }

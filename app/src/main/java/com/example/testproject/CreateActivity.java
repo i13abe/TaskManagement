@@ -19,7 +19,6 @@ import java.util.ArrayList;
 public class CreateActivity extends AppCompatActivity {
 
     private final ArrayList<SubWorkRowData> sub_work_dataset = new ArrayList<>();
-    //private final ArrayList<SubSubWorkRowData> sub_sub_work_dataset = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,24 +44,9 @@ public class CreateActivity extends AppCompatActivity {
         //sub workのボタン生成
         Button create_sub_work = findViewById(R.id.create_sub_work);
 
-        //sub sub workの生成
-        /*
-        View sub_work_layout = getLayoutInflater().inflate(R.layout.sub_work_row, null);
-        RecyclerView sub_sub_works_rv = (RecyclerView) sub_work_layout.findViewById(R.id.sub_sub_works);
-        SubSubWorkAdapter sub_sub_adapter = new SubSubWorkAdapter((this.sub_sub_work_dataset));
-        LinearLayoutManager sub_sub_work_llm = new LinearLayoutManager(this);
-        sub_sub_works_rv.setHasFixedSize(true);
-        sub_sub_works_rv.setLayoutManager(sub_sub_work_llm);
-
-        sub_sub_works_rv.setAdapter(sub_sub_adapter);
-
-        //sub sub workのボタン生成
-        Button create_sub_sub_work = (Button) sub_work_layout.findViewById(R.id.create_sub_sub_work);
-         */
-
         //alert dialog when creating sub work
         //sub work用アラートダイアログ
-        //ここにsub sub workのタイトルを記入
+        //ここにsub workのタイトルを記入
         AlertDialog.Builder sub_alertdialog = new AlertDialog.Builder(this);
         EditText sub_work_title = new EditText(this);
         sub_work_title.setHint("sub work");
@@ -118,45 +102,5 @@ public class CreateActivity extends AppCompatActivity {
         );
 
         sub_works_ith.attachToRecyclerView(sub_works_rv);
-
-
-        /*
-        //alert dialog when creating sub sub work
-        //sub sub work用アラートダイアログ
-        //ここにsub sub workのタイトルを記入
-        AlertDialog.Builder sub_sub_alertdialog = new AlertDialog.Builder(this);
-        EditText sub_sub_work_title = new EditText(this);
-        sub_sub_work_title.setHint("sub sub work");
-        SubSubWorkRowData sub_sub_work = new SubSubWorkRowData();
-        sub_sub_work.setSubSubWorkTitle("asbsjghiebn");
-        sub_sub_work_dataset.add(sub_sub_work);
-        sub_sub_alertdialog.setTitle("小項目");
-        sub_sub_alertdialog.setMessage("仕事/目的の小項目を入力");
-        sub_sub_alertdialog.setView(sub_sub_work_title);
-        sub_sub_alertdialog.setPositiveButton("CREATE", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                SubSubWorkRowData sub_sub_work = new SubSubWorkRowData();
-                sub_sub_work.setSubSubWorkTitle(sub_sub_work_title.getText().toString());
-                sub_sub_work_dataset.add(sub_sub_work);
-                sub_sub_works_rv.setAdapter(sub_sub_adapter);
-                sub_sub_work_title.setText(null);
-            }
-        });
-        sub_sub_alertdialog.setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                sub_sub_work_title.setText(null);
-            }
-        });
-        AlertDialog sub_sub_dialog = sub_sub_alertdialog.create();
-
-        create_sub_sub_work.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                sub_sub_dialog.show();
-            }
-        });
-         */
     }
 }

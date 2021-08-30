@@ -59,23 +59,6 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent">
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="30sp"
-                        android:layout_marginStart="40dp"
-                        android:text="test1"
-                        android:textSize="23sp"
-                        android:textColor="@color/dark_gray"/>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="30sp"
-                        android:layout_marginStart="40dp"
-                        android:text="test2"
-                        android:textSize="23sp"
-                        android:textColor="@color/dark_gray"/>
-
-                    <!---
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/sub_sub_works"
                         android:layout_width="match_parent"
@@ -85,22 +68,22 @@
                         android:id="@+id/create_layout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="40dp"
                         android:orientation="horizontal">
                         <Button
                             android:id="@+id/create_sub_sub_work"
                             android:layout_width="60dp"
                             android:layout_height="wrap_content"
                             android:text="+"
-                            android:textSize="20dp"
+                            android:textSize="20sp"
                             app:backgroundTint="@color/dark_gray"/>
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text=" create sub sub work"
-                            android:textSize="20dp"
+                            android:textSize="20sp"
                             android:textColor="@color/dark_gray"/>
                     </LinearLayout>
-                    -->
 
                 </LinearLayout>
 
