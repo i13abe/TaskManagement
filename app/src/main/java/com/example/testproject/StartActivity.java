@@ -3,9 +3,7 @@ package com.example.testproject;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.DialogInterface;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.content.Intent;
 import android.widget.EditText;
@@ -19,34 +17,22 @@ public class StartActivity extends AppCompatActivity {
 
         //alert dialog
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
-        EditText worktitle = new EditText(this);
-        worktitle.setHint("Work Title");
+        EditText work_title = new EditText(this);
+        work_title.setHint("Work Title");
         alertDialog.setTitle("仕事名/目的");
         alertDialog.setMessage("仕事名や目的を入力");
-        alertDialog.setView(worktitle);
-        alertDialog.setPositiveButton("CREATE", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                Intent intent = new Intent(getApplication(), CreateActivity.class);
-                intent.putExtra("WORK_TITLE", worktitle.getText().toString());
-                startActivity(intent);
-            }
+        alertDialog.setView(work_title);
+        alertDialog.setPositiveButton("CREATE", (dialog, which) -> {
+            Intent intent = new Intent(getApplication(), CreateActivity.class);
+            intent.putExtra("WORK_TITLE", work_title.getText().toString());
+            startActivity(intent);
         });
-        alertDialog.setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                worktitle.setText(null);
-            }
-        });
+        alertDialog.setNegativeButton("CANCEL", (dialog, which) -> work_title.setText(null));
         AlertDialog dialog = alertDialog.create();
 
 
+        //work生成用ボタン
         Button createButton = findViewById(R.id.create_new);
-        createButton.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                dialog.show();
-            }
-        });
+        createButton.setOnClickListener(v -> dialog.show());
     }
 }

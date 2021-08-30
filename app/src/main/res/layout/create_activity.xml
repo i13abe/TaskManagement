@@ -25,7 +25,7 @@
     </HorizontalScrollView>
 
     <LinearLayout
-        android:id="@+id/works_layout"
+        android:id="@+id/work_layout"
         android:layout_width="409dp"
         android:layout_height="626dp"
         android:orientation="vertical"
@@ -33,21 +33,41 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
-    </LinearLayout>
+        <!--
+        <TextView
+            android:id="@+id/sub_work_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="中項目"
+            android:textSize="28sp"
+            />
+         -->
 
-    <View
-        android:id="@+id/line1"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/dark_gray"
-        android:visibility="visible"
-        tools:layout_editor_absoluteX="-5dp"
-        tools:layout_editor_absoluteY="96dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.13"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/sub_works"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <LinearLayout
+            android:id="@+id/create_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/create_sub_work"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:text="+"
+                android:textSize="20dp"
+                app:backgroundTint="@color/dark_gray"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" create sub work"
+                android:textSize="22dp"
+                android:textColor="@color/dark_gray"/>
+        </LinearLayout>
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
