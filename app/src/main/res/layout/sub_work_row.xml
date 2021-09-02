@@ -34,12 +34,19 @@
 
                 <TextView
                     android:id="@+id/sub_work_title"
-                    android:layout_width="match_parent"
+                    android:layout_width="300dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
                     android:layout_gravity="center_vertical"
-                    android:textSize="25sp"
-                    />
+                    android:breakStrategy = "simple"
+                    android:layout_marginStart="10dp"
+                    android:textSize="25sp" />
+
+                <ImageView
+                    android:id="@+id/sub_edit_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    app:srcCompat="@drawable/edit" />
             </LinearLayout>
 
             <net.cachapa.expandablelayout.ExpandableLayout

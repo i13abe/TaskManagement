@@ -38,6 +38,7 @@ public class SubSubWorkAdapter extends RecyclerView.Adapter<SubSubWorkViewHolder
         1行ごとにデータを描画
          */
         holder.sub_sub_work_titleView.setText(list.get(position).getSubSubWorkTitle());
+        holder.update(list, position, this);
     }
 
     public int getItemCount(){

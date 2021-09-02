@@ -38,6 +38,8 @@ public class SubWorkAdapter extends RecyclerView.Adapter<SubWorkViewHolder>{
         1行ごとにデータを描画
          */
         holder.sub_work_titleView.setText(list.get(position).getSubWorkTitle());
+        holder.update(list, position, this);
+        holder.expand(list.get(position));
         holder.bind(list.get(position));
     }
 

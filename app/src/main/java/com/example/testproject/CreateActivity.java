@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -31,6 +32,26 @@ public class CreateActivity extends AppCompatActivity {
         String data = intent.getStringExtra("WORK_TITLE");
         TextView work = findViewById(R.id.work_title);
         work.setText(data);
+
+        //title用edit button
+        ImageView edit_button = findViewById(R.id.edit_button);
+
+        //title用変更alert dialog
+        AlertDialog.Builder title_alertdialog = new AlertDialog.Builder(this);
+        EditText work_title = new EditText(this);
+        work_title.setText(work.getText());
+        title_alertdialog.setTitle("仕事名/目的");
+        title_alertdialog.setMessage("仕事/目的を入力");
+        title_alertdialog.setView(work_title);
+        title_alertdialog.setPositiveButton("RENAME", (dialog, which) -> {
+            String new_data = work_title.getText().toString();
+            work.setText(new_data);
+        });
+        title_alertdialog.setNegativeButton("CANCEL", (dialog, which) -> work_title.setText(work.getText()));
+        AlertDialog title_dialog = title_alertdialog.create();
+
+        edit_button.setOnClickListener(v -> title_dialog.show());
+
 
         //sub workの生成
         RecyclerView sub_works_rv = findViewById(R.id.sub_works);
@@ -65,7 +86,6 @@ public class CreateActivity extends AppCompatActivity {
 
         create_sub_work.setOnClickListener(v -> sub_dialog.show());
 
-
         //ItemTouch
         //Recycler Viewのドラッグ操作, スワイプ操作
         RecyclerView.ItemDecoration sub_works_idr = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL);
@@ -80,12 +100,13 @@ public class CreateActivity extends AppCompatActivity {
                                           @NonNull RecyclerView.ViewHolder target) {
                         final int fromPos = viewHolder.getAbsoluteAdapterPosition();
                         final int toPos = target.getAbsoluteAdapterPosition();
-                        sub_adapter.notifyItemMoved(fromPos, toPos);
 
                         //array listの更新
                         SubWorkRowData tmp = sub_work_dataset.get(fromPos);
                         sub_work_dataset.remove(fromPos);
                         sub_work_dataset.add(toPos, tmp);
+                        sub_adapter.notifyItemMoved(fromPos, toPos);
+                        sub_adapter.notifyItemRangeChanged(0, sub_adapter.getItemCount());
 
                         return true;
                     }
@@ -93,10 +114,6 @@ public class CreateActivity extends AppCompatActivity {
                     @Override
                     public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder,
                                          int direction) {
-                        //左スワイプ削除
-                        final int Pos = viewHolder.getAbsoluteAdapterPosition();
-                        sub_adapter.notifyItemRemoved(Pos);
-                        sub_work_dataset.remove(Pos);
                     }
                 }
         );

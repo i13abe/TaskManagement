@@ -1,5 +1,10 @@
 package com.example.testproject;
 
+import android.widget.EditText;
+import android.widget.ImageView;
+
+import androidx.appcompat.app.AlertDialog;
+
 import java.util.ArrayList;
 
 public class SubWorkRowData {
@@ -29,5 +34,15 @@ public class SubWorkRowData {
 
     public void setSubSubWorkDataset(SubSubWorkRowData sub_sub_work_data){
         this.sub_sub_work_dataset.add(sub_sub_work_data);
+    }
+
+    public void switchSubSubWorkDataset(int fromPos, int toPos){
+        SubSubWorkRowData tmp = this.sub_sub_work_dataset.get(fromPos);
+        this.sub_sub_work_dataset.remove(fromPos);
+        this.sub_sub_work_dataset.add(toPos, tmp);
+    }
+
+    public void deleteSubSubWorkDataset(int Pos){
+        this.sub_sub_work_dataset.remove(Pos);
     }
 }

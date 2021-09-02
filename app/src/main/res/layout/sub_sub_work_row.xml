@@ -1,22 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:card_view="http://schemas.android.com/tools"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="50dp">
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <TextView
-            android:id="@+id/sub_sub_work_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="40dp"
-            android:textSize="23sp"
-            android:textColor="@color/dark_gray"/>
-    </LinearLayout>
+    <TextView
+        android:id="@+id/sub_sub_work_title"
+        android:layout_width="310dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:breakStrategy="simple"
+        android:textColor="@color/dark_gray"
+        android:layout_gravity="center_vertical"
+        android:textSize="23sp" />
+    <ImageView
+        android:id="@+id/sub_sub_edit_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        app:srcCompat="@drawable/edit" />
 
 </LinearLayout>
